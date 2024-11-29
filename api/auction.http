@@ -1,0 +1,13 @@
+POST http://localhost:8080/auction 
+Content-Type: application/jsons
+
+{
+    "product_name": "Carro",
+    "category": "Carro",
+    "description": "Carro de testes",
+    "condition": 1
+}
+
+###
+GET http://localhost:8080/auction/2aa1e4e6-b5c2-44b6-aaee-62dbdadf80ac
+Content-Type: application/json

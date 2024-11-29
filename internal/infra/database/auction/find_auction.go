@@ -6,9 +6,10 @@ import (
 	"fullcycle-auction_go/configuration/logger"
 	"fullcycle-auction_go/internal/entity/auction_entity"
 	"fullcycle-auction_go/internal/internal_error"
+	"time"
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"time"
 )
 
 func (ar *AuctionRepository) FindAuctionById(
@@ -17,8 +18,8 @@ func (ar *AuctionRepository) FindAuctionById(
 
 	var auctionEntityMongo AuctionEntityMongo
 	if err := ar.Collection.FindOne(ctx, filter).Decode(&auctionEntityMongo); err != nil {
-		logger.Error(fmt.Sprintf("Error trying to find auction by id = %s", id), err)
-		return nil, internal_error.NewInternalServerError("Error trying to find auction by id")
+		fmt.Printf("Error trying to find auction by id = %s", id)
+		return nil, internal_error.NewInternalServerError("Error trying to find auction by id " + err.Error())
 	}
 
 	return &auction_entity.Auction{
