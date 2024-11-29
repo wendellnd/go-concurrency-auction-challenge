@@ -9,5 +9,5 @@ Content-Type: application/jsons
 }
 
 ###
-GET http://localhost:8080/auction/2aa1e4e6-b5c2-44b6-aaee-62dbdadf80ac
+GET http://localhost:8080/auction/62936eed-e225-440f-9a5c-939c844939c8
 Content-Type: application/json
